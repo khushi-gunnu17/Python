@@ -553,3 +553,82 @@ root.mainloop()
 # sub_btn.grid(row = 2, column = 0)
 
 # root.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import tkinter as tk
+
+class Calculator(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.title("Simple Calculator")
+        self.geometry("300x400")
+        self.create_widgets()
+
+    def create_widgets(self):
+        # Entry widget to display the result
+        self.entry = tk.Entry(self, font=('Arial', 20), borderwidth=2, relief="solid")
+        self.entry.grid(row=0, column=0, columnspan=4, padx=10, pady=10, sticky="nsew")
+
+        # Buttons for digits and operations
+        buttons = [
+            '7', '8', '9', '/', 
+            '4', '5', '6', '*', 
+            '1', '2', '3', '-', 
+            '0', 'C', '=', '+'
+        ]
+
+        row_val = 1
+        col_val = 0
+        for button in buttons:
+            self.create_button(button, row_val, col_val)
+            col_val += 1
+            if col_val > 3:
+                col_val = 0
+                row_val += 1
+
+        # Configure grid to make buttons expand with the window
+        for i in range(5):
+            self.grid_rowconfigure(i, weight=1)
+        for i in range(4):
+            self.grid_columnconfigure(i, weight=1)
+
+    def create_button(self, text, row, col):
+        button = tk.Button(self, text=text, font=('Arial', 18), command=lambda t=text: self.on_button_click(t))
+        button.grid(row=row, column=col, sticky="nsew")
+
+    def on_button_click(self, char):
+        if char == 'C':
+            self.entry.delete(0, tk.END)
+        elif char == '=':
+            try:
+                result = eval(self.entry.get())
+                self.entry.delete(0, tk.END)
+                self.entry.insert(tk.END, str(result))
+            except Exception as e:
+                self.entry.delete(0, tk.END)
+                self.entry.insert(tk.END, "Error")
+        else:
+            self.entry.insert(tk.END, char)
+
+if __name__ == "__main__":
+    app = Calculator()
+    app.mainloop()

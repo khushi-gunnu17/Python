@@ -147,6 +147,60 @@
 
 
 
+
+
+# import turtle
+
+# turtle.shape('turtle')
+
+# turtle.width(10)
+
+# start_pos_x = -180
+# start_pos_y = 60
+
+# colors = ['blue', 'black', 'red', 'yellow', 'green']
+
+# for i in range(5):
+#     turtle.color(colors[i])
+#     turtle.penup()
+    
+#     # Set the positions for the second row
+#     if i == 3:
+#         start_pos_x = -120
+#         start_pos_y = 0
+#     elif i == 4:
+#         start_pos_x = 0
+#         start_pos_y = 0
+
+#     turtle.setposition(start_pos_x, start_pos_y)
+#     turtle.pendown()
+#     turtle.circle(50)
+    
+#     # Update positions for the first row
+#     if i < 2:
+#         start_pos_x += 120
+#     elif i == 2:
+#         start_pos_x = -60
+#         start_pos_y = 0
+#     else:
+#         start_pos_x += 120
+
+# turtle.done()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # olympic rings 
 
 # import turtle
@@ -198,6 +252,7 @@
 # turtle.circle(100)
 # turtle.end_fill()
 # turtle.penup()
+# turtle.color('black')
 # turtle.goto(-70, 100)
 # turtle.write("JECRC University", font = 10)
 # turtle.bgcolor('pink')
